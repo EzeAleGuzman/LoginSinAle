@@ -60,6 +60,7 @@ export class SingInFormComponent implements OnInit  {
       next: (userData) => {
         console.log(userData);
         localStorage.setItem('token', userData.token);
+        localStorage.setItem('username', username);
       },
       error: (errorData) => {
         console.error(errorData);
