@@ -7,6 +7,7 @@ import { SingUpFormComponent } from '../sing-up-form/sing-up-form.component';
 import { ReactiveFormsModule, FormsModule, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { SonIguales } from '../../validators/customvalidators';
 import { Router } from '@angular/router';
+import { RegistroService } from '../../services/registro.service';
 
 
 
@@ -27,8 +28,8 @@ export class LoginComponent  {
 
 
   formGroup = this.nuevoUsuario.nonNullable.group({
-  name :['', Validators.required],
-  pass : ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[A-Z])(?=.*\\d).+$'), ]],
+  username :['', Validators.required],
+  password : ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[A-Z])(?=.*\\d).+$'), ]],
   email : ['', [Validators.required, Validators.email]],
   confirmarpass: ['', [Validators.required,]],
 
@@ -39,15 +40,27 @@ export class LoginComponent  {
   );
 
 
-constructor(private router: Router) { }
+constructor(private router: Router,  private registroServicio:RegistroService) { }
+
 
 Registrar() {
-  const formData = this.formGroup.value;
-  console.log(formData);
-  
-  alert('Usuario Creado Correctamente');
-  localStorage.setItem('userData', JSON.stringify(formData));
-  this.toggleSignUpMode();
+  const {username = '', password = '', email = ''} = this.formGroup.value;
+  this.registroServicio.registro(username,password,email).subscribe({
+    next: (userData) => {
+      console.log(userData);
+      localStorage.setItem('token', userData.token);
+    },
+    error: (errorData) => {
+      console.error(errorData);
+      alert("Usuario Ya Registrado")
+    },
+    complete: () => {
+      console.info("Login Completo");
+      alert(`Haz creado tu cuenta ${username}`);
+      this.toggleSignUpMode();
+    }
+
+  });
 }
 
 
@@ -72,11 +85,11 @@ Registrar() {
     }
 
     get nameField(): FormControl<string>{
-      return this.formGroup.controls.name;
+      return this.formGroup.controls.username;
     }
 
     get passField(): FormControl<string>{
-      return this.formGroup.controls.pass;
+      return this.formGroup.controls.password;
     }
 
   
