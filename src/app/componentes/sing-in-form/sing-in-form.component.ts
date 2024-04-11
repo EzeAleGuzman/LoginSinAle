@@ -68,6 +68,7 @@ export class SingInFormComponent implements OnInit  {
       complete: () => {
         console.info("Login Completo");
         alert(`Bienvenido ${username}`);
+        this.router.navigate(['Menu']);
       }
     });
 }

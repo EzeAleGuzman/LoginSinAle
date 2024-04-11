@@ -189,6 +189,23 @@ a:hover {
     padding: 1.7rem 0;
 }
 
+.error {
+    
+    border: solid 2px red;
+}
+
+.error input::placeholder {
+    color: red;
+    
+}
+
+.error i {
+    color: red;
+    border: none;
+}
+.valid-alert {
+    color: red;
+}
 .btn {
     width: 150px;
     height: 49px;
