@@ -57,6 +57,7 @@ Registrar() {
     complete: () => {
       console.info("Login Completo");
       alert(`Haz creado tu cuenta ${username}`);
+      this.formGroup.reset();
       this.toggleSignUpMode();
     }
 
