@@ -12,4 +12,8 @@ export class UsuarioService {
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>('https://ezealeguzman.pythonanywhere.com/login/', { username, password });
   }
+
+  recuperar(username: string): Observable<any>{
+    return this.http.post<any>('https://ezealeguzman.pythonanywhere.com/recuperar/', { username });
+  }
 }

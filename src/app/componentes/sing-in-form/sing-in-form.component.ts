@@ -53,8 +53,6 @@ export class SingInFormComponent implements OnInit  {
   
 
   mostrar() {
-
-    
     const { username, password } = this.Usuarios.value; 
     this.usuarioServicio.login(username, password).subscribe({
       next: (userData) => {
@@ -75,4 +73,25 @@ export class SingInFormComponent implements OnInit  {
     });
 }
 
+recuperar() {
+  const { username } = this.Usuarios.value; 
+  this.usuarioServicio.recuperar(username).subscribe({
+    next: (userData) => {
+      console.log(userData);
+      localStorage.setItem('email' , userData);
+    },
+    error: (errorData) => {
+      console.error(errorData);
+      alert("No se encomtro al Usuario")
+    },
+    complete: () => {
+      console.info("busqueda completa");
+      alert(`Mail encontrado`);
+    }
+  });
+}
+
+// get passwordField(): FormControl<string>{
+//   return this.Usuarios.controls.password;
+// }
 }

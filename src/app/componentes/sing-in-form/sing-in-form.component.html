@@ -9,7 +9,7 @@
     </div>
     <input type="submit" value="Ingresar" class="btn solid" [disabled]="!Usuarios.valid" />
     
-    <a routerLink="/recovery" routerLinkActive="activebutton">Olvidaste Tu contraseña</a>
+    <a routerLink="/recovery" routerLinkActive="activebutton" (click)="recuperar()">Olvidaste Tu contraseña</a>
 
     
   </form>

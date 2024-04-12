@@ -15,7 +15,7 @@ import { HeaderComponent } from '../header/header.component';
   styleUrl: './recovery.component.css'
 })
 export class RecoveryComponent {
-
+  email: string = '';
   codigo: string = '';
   cambioContrasena: boolean = false;
   codigoSecreto: string = '123456';
@@ -36,7 +36,17 @@ export class RecoveryComponent {
   }
 
     }
+
+    ngOnInit() {
+      // Access localStorage here:
+      const email = localStorage.getItem('email');
+      if (email) {
+        this.email = email;
+      } else {
+        return
+      }
     
   }
+}
 
 
