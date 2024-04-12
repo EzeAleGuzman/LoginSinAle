@@ -39,7 +39,7 @@
         <p class="valid-alert">8 caracteres como minimo</p>
       }
       <div class="input-field" [class.error]="hasError('confirmarpass') || formGroup.hasError('SonIguales') && confirmarpassField.touched" >
-        <i class="fa fa-envelope" ></i>
+        <i class="fa fa-lock"></i>
         <input type="password" placeholder="confirmar Contraseña" id="confirmarpass" formControlName="confirmarpass" autocomplete="off">
       </div>
       @if (formGroup.hasError('SonIguales') && confirmarpassField.touched){
