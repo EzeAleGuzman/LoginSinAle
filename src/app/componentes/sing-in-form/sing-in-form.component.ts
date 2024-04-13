@@ -17,15 +17,17 @@ import { error, info } from 'console';
 export class SingInFormComponent implements OnInit  {
   tieneError : string = "";
   Usuarios: FormGroup; 
-  
+  visible : boolean = false;
+  inputType: string = 'password';
 
   ngOnInit(): void {
   this.Usuarios = this.formBuilder.group({
     username : new FormControl('', Validators.required),
     password : new FormControl('', Validators.required)
   
+   
     });
-    
+   
   }
 
 
@@ -94,4 +96,13 @@ recuperar() {
 // get passwordField(): FormControl<string>{
 //   return this.Usuarios.controls.password;
 // }
+
+
+//Funcion para cambiar icono y mostrar contraseña
+mostrarContra(){
+  this.visible = !this.visible;
+  this.inputType = (this.inputType === 'password') ? 'text' : 'password';
+}
+
+
 }

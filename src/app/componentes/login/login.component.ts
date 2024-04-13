@@ -22,6 +22,8 @@ export class LoginComponent  {
 
   signUpMode: boolean = false;
   shouldShowForm: boolean = false;
+  visible : boolean = false;
+  inputType: string = 'password';
   
 
   private readonly nuevoUsuario = inject(FormBuilder);
@@ -104,4 +106,9 @@ Registrar() {
     
   }
 
+  //Funcion para cambiar icono y mostrar contraseña
+  mostrarContra(){
+    this.visible = !this.visible;
+    this.inputType = (this.inputType === 'password') ? 'text' : 'password';
+  }
 }

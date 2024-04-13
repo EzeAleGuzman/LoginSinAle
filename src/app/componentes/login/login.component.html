@@ -27,7 +27,9 @@
       }
       <div class="input-field" [class.error]="hasError('password')">
         <i class="fa fa-lock"></i>
-        <input type="password" placeholder="Contraseña" id="ContraseñaRegistro" autocomplete="current-password" formControlName="password" autocomplete="off">
+        <input [type]="inputType" placeholder="Contraseña" id="ContraseñaRegistro" autocomplete="current-password" formControlName="password" autocomplete="off">
+        <i class="fa-solid fa-eye" (click)="mostrarContra()" *ngIf="visible"></i>
+      <i class="fa-solid fa-eye-slash" (click)="mostrarContra()" *ngIf="!visible"></i>
       </div>
       @if (passField.hasError('required') && passField.touched){
         <p class="valid-alert">Campo Requerido</p>
@@ -40,7 +42,9 @@
       }
       <div class="input-field" [class.error]="hasError('confirmarpass') || formGroup.hasError('SonIguales') && confirmarpassField.touched" >
         <i class="fa fa-lock"></i>
-        <input type="password" placeholder="confirmar Contraseña" id="confirmarpass" formControlName="confirmarpass" autocomplete="off">
+        <input [type]="inputType" placeholder="confirmar Contraseña" id="confirmarpass" formControlName="confirmarpass" autocomplete="off">
+        <i class="fa-solid fa-eye" (click)="mostrarContra()" *ngIf="visible"></i>
+      <i class="fa-solid fa-eye-slash" (click)="mostrarContra()" *ngIf="!visible"></i>
       </div>
       @if (formGroup.hasError('SonIguales') && confirmarpassField.touched){
         <p class="valid-alert">Las Contaseñas deben Coincidir</p>

@@ -25,9 +25,11 @@ form.sign-in-form {
     margin: 10px 0;
     border-radius: 55px;
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 15% 70% 15%;
     padding: 0 .4rem;
 }
+
+
 .input-field i {
 
     text-align: center;
