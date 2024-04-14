@@ -43,6 +43,7 @@ export class RecoveryComponent {
       if (email) {
         this.email = email;
       } else {
+        console.log("no encontrado");
         return
       }
     

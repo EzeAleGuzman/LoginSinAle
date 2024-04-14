@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { HideEmailPipe } from '../../pipes/ocultar-mail.pipe';
+
 
 @Component({
   selector: 'app-enviado',
   standalone: true,
-  imports: [],
+  imports: [HideEmailPipe],
   templateUrl: './enviado.component.html',
   styleUrl: './enviado.component.css'
 })
