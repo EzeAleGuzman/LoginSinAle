@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { SingInFormComponent } from '../sing-in-form/sing-in-form.component';
-import { SingUpFormComponent } from '../sing-up-form/sing-up-form.component';
 import { ReactiveFormsModule, FormsModule, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { SonIguales } from '../../validators/customvalidators';
 import { Router } from '@angular/router';
@@ -31,7 +30,7 @@ export class LoginComponent  {
 
   formGroup = this.nuevoUsuario.nonNullable.group({
   username :['', Validators.required],
-  password : ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[A-Z])(?=.*\\d).+$'), ]],
+  password : ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d).+$'), ]],
   email : ['', [Validators.required, Validators.email]],
   confirmarpass: ['', [Validators.required,]],
 
