@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HideEmailPipe } from '../../pipes/ocultar-mail.pipe';
+import { CoolLocalStorage } from '@angular-cool/storage';
 
 
 @Component({
@@ -11,7 +12,11 @@ import { HideEmailPipe } from '../../pipes/ocultar-mail.pipe';
 })
 export class EnviadoComponent {
   email: string = '';
-
+  localStorage: CoolLocalStorage;
+  
+  constructor(localStorage: CoolLocalStorage) {
+    this.localStorage = localStorage;   
+}
 
   ngOnInit() {
     // Access localStorage here:

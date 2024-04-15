@@ -42,7 +42,7 @@
       }
       <div class="input-field" [class.error]="hasError('confirmarpass') || formGroup.hasError('SonIguales') && confirmarpassField.touched" >
         <i class="fa fa-lock"></i>
-        <input [type]="inputType" placeholder="confirmar Contraseña" id="confirmarpass" formControlName="confirmarpass" autocomplete="off">
+        <input [type]="inputType" placeholder="Confirmar Contraseña" id="confirmarpass" formControlName="confirmarpass" autocomplete="off">
         <i class="fa-solid fa-eye" (click)="mostrarContra()" *ngIf="visible"></i>
       <i class="fa-solid fa-eye-slash" (click)="mostrarContra()" *ngIf="!visible"></i>
       </div>
