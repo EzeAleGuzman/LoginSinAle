@@ -12,6 +12,6 @@ export class RegistroService {
   
 
   registro(username: string, password: string, email: string): Observable<any> {
-    return this.http.post<any>('https://localhost:7024/api/Registration/', { username, password, email });
+    return this.http.post<any>('http://127.0.0.1:8000/registre/', { username, password, email });
   }
 }
