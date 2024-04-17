@@ -10,7 +10,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>('https://0.0.0.0:7024/api/Login', { username, password });
+    return this.http.post<any>('https://localhost:7024/api/Login', { username, password });
   }
 
   recuperar(username: string): Observable<any>{
