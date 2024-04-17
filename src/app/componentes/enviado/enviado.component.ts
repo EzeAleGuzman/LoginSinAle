@@ -12,11 +12,7 @@ import { CoolLocalStorage } from '@angular-cool/storage';
 })
 export class EnviadoComponent {
   email: string = '';
-  localStorage: CoolLocalStorage;
-  
-  constructor(localStorage: CoolLocalStorage) {
-    this.localStorage = localStorage;   
-}
+
 
   ngOnInit() {
     // Access localStorage here:

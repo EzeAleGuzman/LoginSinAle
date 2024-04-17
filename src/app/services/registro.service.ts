@@ -12,6 +12,6 @@ export class RegistroService {
   
 
   registro(username: string, password: string, email: string): Observable<any> {
-    return this.http.post<any>('https://ezealeguzman.pythonanywhere.com/register/', { username, password, email });
+    return this.http.post<any>('https://localhost:7024/api/Registration/', { username, password, email });
   }
 }
