@@ -49,7 +49,7 @@ Registrar() {
   this.registroServicio.registro(username,password,email).subscribe({
     next: (userData) => {
       console.log(userData);
-      localStorage.setItem('token', userData.token);
+      // localStorage.setItem('token', userData.token);
     },
     error: (errorData) => {
       console.error(errorData);
