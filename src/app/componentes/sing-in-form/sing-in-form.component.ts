@@ -72,7 +72,7 @@ export class SingInFormComponent implements OnInit  {
         console.info("Login Completo");
         alert(`Bienvenido ${username}`);
         this.Usuarios.reset();
-       if (this.cookies.get('Status') === 'Unverified') {
+       if (this.cookies.get('Status') == 'Unverified') {
         this.router.navigate(['VerificarCuenta']);
        } else {
         this.router.navigate(['perfil'])
