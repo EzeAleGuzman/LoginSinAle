@@ -60,16 +60,23 @@ export class SingInFormComponent implements OnInit  {
       next: (userData) => {
         this.cookies.set("username",username);
         this.cookies.set('token', userData.token);
+        this.cookies.set('Status', userData.status);
+        console.log(userData)
       },
       error: (errorData) => {
         console.error(errorData);
         alert("Credenciales erroneas")
       },
       complete: () => {
+        console
         console.info("Login Completo");
         alert(`Bienvenido ${username}`);
         this.Usuarios.reset();
+       if (this.cookies.get('Status') === 'Unverified') {
         this.router.navigate(['VerificarCuenta']);
+       } else {
+        this.router.navigate(['perfil'])
+       }
       }
     });
 }
