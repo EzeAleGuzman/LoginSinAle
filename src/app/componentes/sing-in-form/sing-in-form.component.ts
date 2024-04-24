@@ -4,7 +4,7 @@ import { Component , OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
-import { error, info } from 'console';
+import { CookieService } from 'ngx-cookie-service'
 
 
 @Component({
@@ -32,7 +32,7 @@ export class SingInFormComponent implements OnInit  {
 
 
 
-  constructor(private formBuilder: FormBuilder,private router: Router, private usuarioServicio:UsuarioService) {
+  constructor(private formBuilder: FormBuilder,private router: Router, private usuarioServicio:UsuarioService,  private cookies : CookieService) {
     this.Usuarios = this.formBuilder.group({
       username: ['', <ValidatorFn>Validators.required],
       password: ['', Validators.required],
@@ -58,9 +58,8 @@ export class SingInFormComponent implements OnInit  {
     const { username, password } = this.Usuarios.value; 
     this.usuarioServicio.login(username, password).subscribe({
       next: (userData) => {
-        console.log(userData);
-        localStorage.setItem('token', userData.token);
-        localStorage.setItem('username', username);
+        this.cookies.set("username",username);
+        this.cookies.set('token', userData.token);
       },
       error: (errorData) => {
         console.error(errorData);
@@ -70,28 +69,29 @@ export class SingInFormComponent implements OnInit  {
         console.info("Login Completo");
         alert(`Bienvenido ${username}`);
         this.Usuarios.reset();
-        this.router.navigate(['Menu']);
+        this.router.navigate(['VerificarCuenta']);
       }
     });
 }
 
-recuperar() {
-  const { username } = this.Usuarios.value; 
-  this.usuarioServicio.recuperar(username).subscribe({
-    next: (userData) => {
-      console.log(userData);
-      localStorage.setItem('email' , userData);
-    },
-    error: (errorData) => {
-      console.error(errorData);
-      alert("No se encomtro al Usuario")
-    },
-    complete: () => {
-      console.info("busqueda completa");
-      alert(`Mail encontrado`);
-    }
-  });
-}
+//metodo para recuperar con nombre de usuario 
+// recuperar() {
+//   const { username } = this.Usuarios.value; 
+//   this.usuarioServicio.recuperar(username).subscribe({
+//     next: (userData) => {
+//       console.log(userData);
+//       this.cookies.set('email' , userData);
+//     },
+//     error: (errorData) => {
+//       console.error(errorData);
+//       alert("No se encomtro al Usuario")
+//     },
+//     complete: () => {
+//       console.info("busqueda completa");
+//       alert(`Mail encontrado`);
+//     }
+//   });
+// }
 
 // get passwordField(): FormControl<string>{
 //   return this.Usuarios.controls.password;

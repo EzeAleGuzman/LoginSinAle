@@ -5,6 +5,8 @@ import { RecoveryComponent } from './componentes/recovery/recovery.component';
 import { MenuPrincipalComponent } from './componentes/menu-principal/menu-principal.component';
 import { EnviarMailComponent } from './componentes/enviar-mail/enviar-mail.component';
 import { EnviadoComponent } from './componentes/enviado/enviado.component';
+import { VerificarcuentaComponent } from './componentes/verificarcuenta/verificarcuenta.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 export const routes: Routes = [
     {
@@ -31,5 +33,13 @@ export const routes: Routes = [
     {
         path: 'enviado',
         component: EnviadoComponent,
+    },
+    {
+        path: 'VerificarCuenta',
+        component: VerificarcuentaComponent,
+    },
+    {
+        path: "perfil",
+        component: PerfilComponent,
     },
 ];

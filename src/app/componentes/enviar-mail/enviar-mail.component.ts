@@ -24,22 +24,22 @@ formGroup : FormGroup;
     });
   }
 
-  recuperar() {
-    const { username } = this.formGroup.value; 
-    this.usuarioServicio.recuperar(username).subscribe({
-      next: (userData) => {
-        console.log(userData);
-        localStorage.setItem('email' , userData);
-      },
-      error: (errorData) => {
-        console.error(errorData);
-        alert("No se encomtro al Usuario")
-      },
-      complete: () => {
-        console.info("busqueda completa");
-        this.router.navigate(['enviado']);
-      }
-    });
-  }
+  // recuperar() {
+  //   const { username } = this.formGroup.value; 
+  //   this.usuarioServicio.recuperar(username).subscribe({
+  //     next: (userData) => {
+  //       console.log(userData);
+  //       localStorage.setItem('email' , userData);
+  //     },
+  //     error: (errorData) => {
+  //       console.error(errorData);
+  //       alert("No se encomtro al Usuario")
+  //     },
+  //     complete: () => {
+  //       console.info("busqueda completa");
+  //       this.router.navigate(['enviado']);
+  //     }
+  //   });
+  // }
 
 }

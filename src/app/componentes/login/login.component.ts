@@ -7,6 +7,8 @@ import { ReactiveFormsModule, FormsModule, FormControl, Validators, FormBuilder}
 import { SonIguales } from '../../validators/customvalidators';
 import { Router } from '@angular/router';
 import { RegistroService } from '../../services/registro.service';
+import { CookieService } from 'ngx-cookie-service'
+
 
 
 
@@ -41,22 +43,20 @@ export class LoginComponent  {
   );
 
 
-constructor(private router: Router,  private registroServicio:RegistroService) { }
+constructor(private router: Router,  private registroServicio:RegistroService,  private cookies : CookieService) { }
 
 
 Registrar() {
   const {username = '', password = '', email = ''} = this.formGroup.value;
   this.registroServicio.registro(username,password,email).subscribe({
     next: (userData) => {
-      console.log(userData);
-      // localStorage.setItem('token', userData.token);
+      
     },
     error: (errorData) => {
       console.error(errorData);
       alert("Usuario Ya Registrado")
     },
     complete: () => {
-      console.info("Login Completo");
       alert(`Haz creado tu cuenta ${username}`);
       this.formGroup.reset();
       this.toggleSignUpMode();
