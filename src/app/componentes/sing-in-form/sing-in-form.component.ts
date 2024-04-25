@@ -75,7 +75,7 @@ export class SingInFormComponent implements OnInit  {
        if (this.cookies.get('Status') == 'Unverified') {
         this.router.navigate(['VerificarCuenta']);
        } else {
-        this.router.navigate(['perfil'])
+        this.router.navigate(['cuenta'])
        }
       }
     });

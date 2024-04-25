@@ -7,6 +7,8 @@ import { EnviarMailComponent } from './componentes/enviar-mail/enviar-mail.compo
 import { EnviadoComponent } from './componentes/enviado/enviado.component';
 import { VerificarcuentaComponent } from './componentes/verificarcuenta/verificarcuenta.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
+import { CuentasComponent } from './componentes/cuentas/cuentas.component';
+import { TransaccionesComponent } from './componentes/transacciones/transacciones.component';
 
 export const routes: Routes = [
     {
@@ -42,4 +44,12 @@ export const routes: Routes = [
         path: "perfil",
         component: PerfilComponent,
     },
+    {
+        path: "cuenta",
+        component: CuentasComponent,
+    },
+    {
+        path: "transaccion",
+        component: TransaccionesComponent,
+    }
 ];
