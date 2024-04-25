@@ -1,8 +1,8 @@
 import { AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../services/usuario.service';
+import { UsuarioService } from '../../services/usuario.service';
 import { Observable } from 'rxjs';
-import { Usuario } from '../Models/Usuario';
+import { Usuario } from '../../Models/Usuario';
 import { RouterLink, RouterOutlet,  } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 

@@ -6,7 +6,7 @@ import { MenuPrincipalComponent } from './componentes/menu-principal/menu-princi
 import { EnviarMailComponent } from './componentes/enviar-mail/enviar-mail.component';
 import { EnviadoComponent } from './componentes/enviado/enviado.component';
 import { VerificarcuentaComponent } from './componentes/verificarcuenta/verificarcuenta.component';
-import { PerfilComponent } from './perfil/perfil.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 export const routes: Routes = [
     {
