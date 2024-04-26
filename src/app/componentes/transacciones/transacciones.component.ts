@@ -92,4 +92,14 @@ constructor(private formBuilder: FormBuilder, private transaccionesServicio:Tran
     })
   }
 
+  getTipoCuenta(type: string): string {
+    if (type == '1') {
+      return 'Cuenta de Ahorro';
+    } else if (type == '0') {
+      return 'Cuenta Corriente';
+    } else {
+      return 'Tipo de cuenta desconocido';
+    }
+  }
+
 }

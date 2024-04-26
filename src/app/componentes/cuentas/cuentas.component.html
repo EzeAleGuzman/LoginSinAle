@@ -25,15 +25,15 @@
     <section class="secc-cuentaDatos" *ngFor="let cuenta of listaCuentas">
         <div class="total">
             <h4>Saldo Total en $</h4>
-            <span >{{ calcularSaldoTotal(listaCuentas) }}</span>
+            <span >$ 0</span>
         </div>
         <div class="sueldo" *ngIf="cuenta.type == '0'">
             <h4>Caja de Ahorro en pesos $</h4>
-            <h4>{{ cuenta.balance }}</h4>
+            <h4> 0 </h4>
         </div>
         <div class="corriente"  *ngIf="cuenta.type == '1'">
             <h4>Cuenta Corriente en $</h4>
-            <span>{{ cuenta.balance }}</span>
+            <span> 0 </span>
         </div>
         <div class="aliasD">
             <a href="#">Consultar Alias y datos de la cuenta</a>
@@ -52,11 +52,11 @@
             </thead>
             <tbody >
                 <tr>
-                    <td>fecha</td>
-                    <td>descripcion</td>
-                    <td>$ cuentasueldo</td>
-                    <td>ctaahorro</td>
-                    <td>$ totalmensual</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>$ 0</td>
+                    <td> 0 </td>
+                    <td>$ 0</td>
                 </tr>
             </tbody>
         </table>

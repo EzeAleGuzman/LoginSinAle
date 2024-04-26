@@ -17,7 +17,7 @@
         <form [formGroup]="Deposito" (ngSubmit)="depositar()">
             <h1>Depositos</h1>
             <select name="" id="" formControlName="accountNumber">
-                <option *ngFor="let cuenta of listaCuentas" [value]="cuenta">{{ cuenta.accountNumber }}</option>
+                <option *ngFor="let cuenta of listaCuentas" [value]="cuenta">{{ cuenta.accountNumber }} - {{ getTipoCuenta(cuenta.type)}}</option>
             </select>
             
             <input type="text" placeholder="Numero de Tarjeta" formControlName="cardNumber">
