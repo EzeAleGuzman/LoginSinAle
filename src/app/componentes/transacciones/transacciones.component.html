@@ -14,13 +14,17 @@
         </form>
     </div>
     <div  class="form-container sign-in">
-        <form>
+        <form [formGroup]="Deposito" (ngSubmit)="depositar()">
             <h1>Depositos</h1>
-            <input type="text" placeholder="Cuenta a transferir">
-            <input type="text" placeholder="Titular">
-            <input type="number" placeholder="Numero de cuenta">
-            <input type="number" placeholder="CVV">
-            <input type="number" placeholder="Monto a transferir">
+            <select name="" id="" formControlName="accountNumber">
+                <option *ngFor="let cuenta of listaCuentas" [value]="cuenta">{{ cuenta.accountNumber }} - Saldo: $ {{ cuenta.balance }}</option>
+            </select>
+            
+            <input type="number" placeholder="Numero de Tarjeta" formControlName="cardNumber">
+            <input type="number" placeholder="CVV" formControlName="CVV">
+            <input type="text" placeholder="fecha de vencimiento" formControlName="expiryDate">
+            <input type="number" placeholder="Monto a transferir" formControlName="amount">
+           
             <button>Depositar</button>
         </form>
     </div>

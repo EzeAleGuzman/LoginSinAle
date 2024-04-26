@@ -5,9 +5,8 @@
         </div>
 
         <div class="select-cuenta">
-            <select>
-                <option value="">Cuenta de ahorro en pesos</option>
-                <option value="">Cuenta corriente en pesos</option>
+            <select name="" id="" formControlName="accountNumber">
+                <option *ngFor="let cuenta of listaCuentas" [value]="cuenta">{{ cuenta.accountNumber }} - Saldo: $ {{ cuenta.balance }}</option>
             </select>
         </div>
         <div class="select-operacion">
@@ -28,8 +27,7 @@
             <span>totalpesos</span>
         </div>
         <div class="sueldo">
-            <h4>Cuenta sueldo</h4>
-            <span>cuentasueldo</span>
+            <h4>caja de Ahorro</h4>
         </div>
         <div class="corriente">
             <h4>Cuenta Corriente en $</h4>
