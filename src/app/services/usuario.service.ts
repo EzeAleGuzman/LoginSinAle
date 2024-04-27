@@ -10,7 +10,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>('http://localhost:5001/api/Login', { username, password });
+    return this.http.post<any>('https://luminabank.somee.com/api/Login', { username, password });
   }
 
   // recuperar(username: string): Observable<any>{
@@ -25,7 +25,7 @@ export class UsuarioService {
     });
     
     // Enviar la solicitud POST al backend
-    return this.http.get<any>('http://localhost:5001/api/UserVerification/datosusuario',  { headers: headers });
+    return this.http.get<any>('https://luminabank.somee.com/api/UserVerification/datosusuario',  { headers: headers });
   }
 
   
@@ -39,6 +39,6 @@ export class UsuarioService {
     });
     console.log(dateOfBirth);
     // Enviar la solicitud POST al backend
-    return this.http.put<any>('http://localhost:5001/api/UserVerification/VerificaciónUsuario',{ fullname, DNI, DateOfBirth, Address }, { headers: headers });
+    return this.http.put<any>('https://luminabank.somee.com/api/UserVerification/VerificaciónUsuario',{ fullname, DNI, DateOfBirth, Address }, { headers: headers });
   }
 }
